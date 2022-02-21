@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text;
+using static System.Diagnostics.Debug;
 
 namespace IdentityServerHost.Quickstart.UI
 {
@@ -16,6 +17,7 @@ namespace IdentityServerHost.Quickstart.UI
         {
             AuthenticateResult = result;
 
+            Assert(result.Properties != null, "result.Properties != null");
             if (result.Properties.Items.ContainsKey("client_list"))
             {
                 var encoded = result.Properties.Items["client_list"];
